@@ -1,0 +1,6 @@
+﻿ #global {
+        height: 400px;
+        width: auto;
+        border: 0px solid #ddd;
+        overflow-y: scroll;
+    }

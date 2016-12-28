@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    if (Session["idUsuario"] != null)
+    {
+        @Html.AntiForgeryToken()
+        if (Session["idTipoUsuario"].ToString() == "1") //Usuario Administrador
+        {
+            <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand page-scroll" href="#page-top">#21TEAM</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="page-scroll">@Html.ActionLink("Inicio", "Index", "Home")</a></li>
+                            <li><a class="page-scroll">@Html.ActionLink("Conocenos", "Conocenos", "Home")</a></li>
+                            <li><a class="page-scroll">@Html.ActionLink("Servicios", "Servicios", "Home")</a></li>
+                            <li><a class="page-scroll">@Html.ActionLink("Contacto", "contacto", "Home")</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                    @Session["nombreUsuario"].ToString()
+                                    <span class="caret">
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="page-scroll">@Html.ActionLink("Configuracion", "Registro", "RegistroDeUsuarios")</a></li>
+                                    <li><a class="page-scroll">@Html.ActionLink("Cerrar Sesión", "LogOff", "Login", routeValues: null, htmlAttributes: new { title = "Cerrar Sesión" })</a></li>
+                                </ul>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        }
+
+        else if (Session["idTipoUsuario"].ToString() == "2") //Usuario Freelancer
+        {
+        @Html.Partial("_Menu")
+        }
+        else
+        {
+        @Html.Partial("_Menu") //Usuario Compañia
+        }
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+        }
+    }
+

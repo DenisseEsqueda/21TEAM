@@ -1,0 +1,15 @@
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\CapaEntidades.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\EntityFramework.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\CapaEntidades.pdb
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\EntityFramework.xml
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\WebApplication1\CapaDatos\obj\Debug\CapaDatos.pdb

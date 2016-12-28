@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Servicios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br /><br />
+<h2>Servicios</h2>
+<h4>Estamos en todos lados!<br /></h4>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+        @Scripts.Render("~/Scripts/jquery-1.10.2.js")
+
+
+    <script>
+     
+            
+        $(document).ready(function () {
+            var ulEmployees = $('#ulEmployees');
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:82/api/API",
+                    dataType: 'json',
+                    success: function (data) {
+                        ulEmployees.empty();
+                        $.each(data, function (index, val) {
+                            var fullName = val.nombrePais;
+                            ulEmployees.append( fullName + '<br />');
+                        });
+                    }
+                });
+          
+        });
+    </script>
+</head>
+<body>
+    <table width="100%">
+        <td width="50%">
+            <img src="~/Content/Plantilla/img/mapa_mexico.png" width="500px"/>
+        </td>
+        <td width="50%">
+            <ul id="ulEmployees" />
+        </td>
+    </table>
+    <br /><br /><br /><br />
+    <h4>Se parte del aquipo!! - @Html.ActionLink("Registrarte", "Registro", "Registro") <br /></h4>
+</body>

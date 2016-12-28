@@ -1,0 +1,10 @@
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\bin\Debug\EntityFramework.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\bin\Debug\EntityFramework.xml
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\CarmenEsqueda\Documents\Escuela\#TEAM21-Web-Patrones\API LISTADO\API\CapaDatos\obj\Debug\CapaDatos.pdb

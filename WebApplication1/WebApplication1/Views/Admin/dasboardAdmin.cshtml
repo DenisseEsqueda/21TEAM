@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CapaEntidades.RegistroUsuario>
+
+@{
+    ViewBag.Title = "dasboardAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenido @Session["nombreUsuario"].ToString() - Dashboard</h2>
+<h5>Aqui podras monitorear los usuarios que se encuentran registrados en la plataforma<br />
+    asi como los trabajos que estan actualmente.</h5>
+<br />
+
+
+ <h3>Usuarios registrados</h3>
+  <h4>
+        Usuarios Freelancer
+        <a href='@Url.Action("IndexUsuariosFreelancers", "Admin")'>
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+    </h4>
+
+  <h4>
+        Usuarios Empresas
+        <a href='@Url.Action("IndexUsuariosEmpresa", "Admin")'>
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+    </h4>
+
+<h3>Trabajos registrados</h3>
+<h4>
+        Trabajos
+        <a href='@Url.Action("IndexTrabajos", "Admin")'>
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+    </h4>
+
+
+
+@*@Html.Partial("_menuDashboard")<br />*@
+
+@*<h4>
+    <a href='@Url.Action("IndexUsu", "Admin")'>
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
+</h4>*@

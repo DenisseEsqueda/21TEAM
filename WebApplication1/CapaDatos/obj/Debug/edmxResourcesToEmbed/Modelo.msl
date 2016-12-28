@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Proyecto_patronusWebModel1StoreContainer" CdmEntityContainer="Proyecto_patronusWebEntities1">
+    <EntitySetMapping Name="EquipoTrabajoes">
+      <EntityTypeMapping TypeName="Proyecto_patronusWebModel1.EquipoTrabajo">
+        <MappingFragment StoreEntitySet="EquipoTrabajo">
+          <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="num_miembros" ColumnName="num_miembros" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfils">
+      <EntityTypeMapping TypeName="Proyecto_patronusWebModel1.Perfil">
+        <MappingFragment StoreEntitySet="Perfil">
+          <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idTrabajo" ColumnName="idTrabajo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="habilidades" ColumnName="habilidades" />
+          <ScalarProperty Name="historial_trabajo" ColumnName="historial_trabajo" />
+          <ScalarProperty Name="trabajo_actual" ColumnName="trabajo_actual" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="cerificaciones" ColumnName="cerificaciones" />
+          <ScalarProperty Name="lenguajes" ColumnName="lenguajes" />
+          <ScalarProperty Name="rankingId" ColumnName="rankingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rankings">
+      <EntityTypeMapping TypeName="Proyecto_patronusWebModel1.Ranking">
+        <MappingFragment StoreEntitySet="Ranking">
+          <ScalarProperty Name="rankingId" ColumnName="rankingId" />
+          <ScalarProperty Name="puntos" ColumnName="puntos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistroUsuarios">
+      <EntityTypeMapping TypeName="Proyecto_patronusWebModel1.RegistroUsuario">
+        <MappingFragment StoreEntitySet="RegistroUsuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="ConfirmarContrasena" ColumnName="ConfirmarContrasena" />
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuarios">
+      <EntityTypeMapping TypeName="Proyecto_patronusWebModel1.TipoUsuario">
+        <MappingFragment StoreEntitySet="TipoUsuario">
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="tipoUsuario1" ColumnName="tipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrabActuals">
+      <EntityTypeMapping TypeName="Proyecto_patronusWebModel1.TrabActual">
+        <MappingFragment StoreEntitySet="TrabActual">
+          <ScalarProperty Name="idTrabajo" ColumnName="idTrabajo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechaAsignada" ColumnName="fechaAsignada" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trabajoes">
+      <EntityTypeMapping TypeName="Proyecto_patronusWebModel1.Trabajo">
+        <MappingFragment StoreEntitySet="Trabajo">
+          <ScalarProperty Name="idTrabajo" ColumnName="idTrabajo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_inicial" ColumnName="fecha_inicial" />
+          <ScalarProperty Name="fecha_final" ColumnName="fecha_final" />
+          <ScalarProperty Name="pago" ColumnName="pago" />
+          <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrabDisponibles">
+      <EntityTypeMapping TypeName="Proyecto_patronusWebModel1.TrabDisponible">
+        <MappingFragment StoreEntitySet="TrabDisponible">
+          <ScalarProperty Name="idTrabajo" ColumnName="idTrabajo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="tiempo" ColumnName="tiempo" />
+          <ScalarProperty Name="pago" ColumnName="pago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

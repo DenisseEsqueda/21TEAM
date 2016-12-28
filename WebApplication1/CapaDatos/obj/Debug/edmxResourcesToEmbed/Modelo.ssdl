@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Proyecto_patronusWebModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EquipoTrabajo">
+    <Key>
+      <PropertyRef Name="idTeam" />
+    </Key>
+    <Property Name="idTeam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="30" />
+    <Property Name="num_miembros" Type="int" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="idPerfil" />
+    </Key>
+    <Property Name="idPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUsuario" Type="int" />
+    <Property Name="idTrabajo" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="30" />
+    <Property Name="apellidos" Type="varchar" MaxLength="30" />
+    <Property Name="telefono" Type="varchar" MaxLength="30" />
+    <Property Name="direccion" Type="varchar" MaxLength="50" />
+    <Property Name="correo" Type="varchar" MaxLength="30" />
+    <Property Name="habilidades" Type="varchar" MaxLength="30" />
+    <Property Name="historial_trabajo" Type="varchar" MaxLength="30" />
+    <Property Name="trabajo_actual" Type="varchar" MaxLength="30" />
+    <Property Name="About" Type="varchar" MaxLength="100" />
+    <Property Name="cerificaciones" Type="varchar" MaxLength="30" />
+    <Property Name="lenguajes" Type="varchar" MaxLength="30" />
+    <Property Name="rankingId" Type="int" />
+  </EntityType>
+  <EntityType Name="Ranking">
+    <Key>
+      <PropertyRef Name="rankingId" />
+    </Key>
+    <Property Name="rankingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="puntos" Type="int" />
+  </EntityType>
+  <EntityType Name="RegistroUsuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="30" />
+    <Property Name="nombreUsuario" Type="varchar" MaxLength="30" />
+    <Property Name="contrasena" Type="varchar" MaxLength="30" />
+    <Property Name="ConfirmarContrasena" Type="varchar" MaxLength="30" />
+    <Property Name="idTipoUsuario" Type="int" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="idTipoUsuario" />
+    </Key>
+    <Property Name="idTipoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoUsuario" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TrabActual">
+    <Key>
+      <PropertyRef Name="idTrabajo" />
+    </Key>
+    <Property Name="idTrabajo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="fechaAsignada" Type="varchar" MaxLength="30" />
+    <Property Name="fechaInicial" Type="varchar" MaxLength="30" />
+    <Property Name="fechaFinal" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Trabajo">
+    <Key>
+      <PropertyRef Name="idTrabajo" />
+    </Key>
+    <Property Name="idTrabajo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_inicial" Type="varchar" MaxLength="30" />
+    <Property Name="fecha_final" Type="varchar" MaxLength="30" />
+    <Property Name="pago" Type="int" />
+    <Property Name="idTeam" Type="int" />
+  </EntityType>
+  <EntityType Name="TrabDisponible">
+    <Key>
+      <PropertyRef Name="idTrabajo" />
+    </Key>
+    <Property Name="idTrabajo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="fechaInicial" Type="varchar" MaxLength="30" />
+    <Property Name="fechaFinal" Type="varchar" MaxLength="30" />
+    <Property Name="tiempo" Type="int" />
+    <Property Name="pago" Type="int" />
+  </EntityType>
+  <Association Name="FK__Perfil__idTrabaj__20C1E124">
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="0..1" />
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trabajo">
+        <PropertyRef Name="idTrabajo" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="idTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Perfil__idUsuari__1FCDBCEB">
+    <End Role="RegistroUsuario" Type="Self.RegistroUsuario" Multiplicity="0..1" />
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistroUsuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Perfil__rankingI__21B6055D">
+    <End Role="Ranking" Type="Self.Ranking" Multiplicity="0..1" />
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ranking">
+        <PropertyRef Name="rankingId" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="rankingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroU__idTip__0519C6AF">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+    <End Role="RegistroUsuario" Type="Self.RegistroUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Principal>
+      <Dependent Role="RegistroUsuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trabajo__idTeam__1B0907CE">
+    <End Role="EquipoTrabajo" Type="Self.EquipoTrabajo" Multiplicity="0..1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipoTrabajo">
+        <PropertyRef Name="idTeam" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trabajo__idTraba__1920BF5C">
+    <End Role="TrabActual" Type="Self.TrabActual" Multiplicity="1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TrabActual">
+        <PropertyRef Name="idTrabajo" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trabajo__idTraba__1A14E395">
+    <End Role="TrabDisponible" Type="Self.TrabDisponible" Multiplicity="1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TrabDisponible">
+        <PropertyRef Name="idTrabajo" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Proyecto_patronusWebModel1StoreContainer">
+    <EntitySet Name="EquipoTrabajo" EntityType="Self.EquipoTrabajo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ranking" EntityType="Self.Ranking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegistroUsuario" EntityType="Self.RegistroUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrabActual" EntityType="Self.TrabActual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trabajo" EntityType="Self.Trabajo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrabDisponible" EntityType="Self.TrabDisponible" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Perfil__idTrabaj__20C1E124" Association="Self.FK__Perfil__idTrabaj__20C1E124">
+      <End Role="Trabajo" EntitySet="Trabajo" />
+      <End Role="Perfil" EntitySet="Perfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Perfil__idUsuari__1FCDBCEB" Association="Self.FK__Perfil__idUsuari__1FCDBCEB">
+      <End Role="RegistroUsuario" EntitySet="RegistroUsuario" />
+      <End Role="Perfil" EntitySet="Perfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Perfil__rankingI__21B6055D" Association="Self.FK__Perfil__rankingI__21B6055D">
+      <End Role="Ranking" EntitySet="Ranking" />
+      <End Role="Perfil" EntitySet="Perfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroU__idTip__0519C6AF" Association="Self.FK__RegistroU__idTip__0519C6AF">
+      <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+      <End Role="RegistroUsuario" EntitySet="RegistroUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trabajo__idTeam__1B0907CE" Association="Self.FK__Trabajo__idTeam__1B0907CE">
+      <End Role="EquipoTrabajo" EntitySet="EquipoTrabajo" />
+      <End Role="Trabajo" EntitySet="Trabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trabajo__idTraba__1920BF5C" Association="Self.FK__Trabajo__idTraba__1920BF5C">
+      <End Role="TrabActual" EntitySet="TrabActual" />
+      <End Role="Trabajo" EntitySet="Trabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trabajo__idTraba__1A14E395" Association="Self.FK__Trabajo__idTraba__1A14E395">
+      <End Role="TrabDisponible" EntitySet="TrabDisponible" />
+      <End Role="Trabajo" EntitySet="Trabajo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

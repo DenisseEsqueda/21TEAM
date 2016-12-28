@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoPatronusWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idCategoria" />
+    </Key>
+    <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoria1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trabajoes" Relationship="Self.FK__Trabajo__idCateg__1367E606" FromRole="Categoria" ToRole="Trabajo" />
+  </EntityType>
+  <EntityType Name="EstadoTrabajo">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estadoTrabajo1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trabajoes" Relationship="Self.FK__Trabajo__idEstad__1273C1CD" FromRole="EstadoTrabajo" ToRole="Trabajo" />
+  </EntityType>
+  <EntityType Name="RegistroUsuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nombreUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmarContrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="idTipoUsuario" Type="Int32" />
+    <NavigationProperty Name="TipoUsuario" Relationship="Self.FK__RegistroU__idTip__0519C6AF" FromRole="RegistroUsuario" ToRole="TipoUsuario" />
+    <NavigationProperty Name="Trabajoes" Relationship="Self.FK__Trabajo__idUsuar__117F9D94" FromRole="RegistroUsuario" ToRole="Trabajo" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="idTipoUsuario" />
+    </Key>
+    <Property Name="idTipoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoUsuario1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RegistroUsuarios" Relationship="Self.FK__RegistroU__idTip__0519C6AF" FromRole="TipoUsuario" ToRole="RegistroUsuario" />
+  </EntityType>
+  <EntityType Name="Trabajo">
+    <Key>
+      <PropertyRef Name="idTrabajo" />
+    </Key>
+    <Property Name="idTrabajo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idCategoria" Type="Int32" />
+    <Property Name="fechaInicial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaAsignada" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaFinal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="idEstado" Type="Int32" />
+    <Property Name="idUsuario" Type="Int32" />
+    <Property Name="costoTrabajo" Type="Int32" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK__Trabajo__idCateg__1367E606" FromRole="Trabajo" ToRole="Categoria" />
+    <NavigationProperty Name="EstadoTrabajo" Relationship="Self.FK__Trabajo__idEstad__1273C1CD" FromRole="Trabajo" ToRole="EstadoTrabajo" />
+    <NavigationProperty Name="RegistroUsuario" Relationship="Self.FK__Trabajo__idUsuar__117F9D94" FromRole="Trabajo" ToRole="RegistroUsuario" />
+  </EntityType>
+  <Association Name="FK__Trabajo__idCateg__1367E606">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trabajo__idEstad__1273C1CD">
+    <End Role="EstadoTrabajo" Type="Self.EstadoTrabajo" Multiplicity="0..1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoTrabajo">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroU__idTip__0519C6AF">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+    <End Role="RegistroUsuario" Type="Self.RegistroUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Principal>
+      <Dependent Role="RegistroUsuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trabajo__idUsuar__117F9D94">
+    <End Role="RegistroUsuario" Type="Self.RegistroUsuario" Multiplicity="0..1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistroUsuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoPatronusWebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorias" EntityType="Self.Categoria" />
+    <EntitySet Name="EstadoTrabajoes" EntityType="Self.EstadoTrabajo" />
+    <EntitySet Name="RegistroUsuarios" EntityType="Self.RegistroUsuario" />
+    <EntitySet Name="TipoUsuarios" EntityType="Self.TipoUsuario" />
+    <EntitySet Name="Trabajoes" EntityType="Self.Trabajo" />
+    <AssociationSet Name="FK__Trabajo__idCateg__1367E606" Association="Self.FK__Trabajo__idCateg__1367E606">
+      <End Role="Categoria" EntitySet="Categorias" />
+      <End Role="Trabajo" EntitySet="Trabajoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trabajo__idEstad__1273C1CD" Association="Self.FK__Trabajo__idEstad__1273C1CD">
+      <End Role="EstadoTrabajo" EntitySet="EstadoTrabajoes" />
+      <End Role="Trabajo" EntitySet="Trabajoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroU__idTip__0519C6AF" Association="Self.FK__RegistroU__idTip__0519C6AF">
+      <End Role="TipoUsuario" EntitySet="TipoUsuarios" />
+      <End Role="RegistroUsuario" EntitySet="RegistroUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trabajo__idUsuar__117F9D94" Association="Self.FK__Trabajo__idUsuar__117F9D94">
+      <End Role="RegistroUsuario" EntitySet="RegistroUsuarios" />
+      <End Role="Trabajo" EntitySet="Trabajoes" />
+    </AssociationSet>
+    <EntitySet Name="PAISES" EntityType="ProyectoPatronusWebModel.PAIS" />
+  </EntityContainer>
+  <EntityType Name="PAIS">
+    <Key>
+      <PropertyRef Name="idPaises" />
+    </Key>
+    <Property Name="idPaises" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrePais" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

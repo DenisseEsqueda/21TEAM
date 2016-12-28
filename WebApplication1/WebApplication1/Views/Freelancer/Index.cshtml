@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CapaEntidades.Trabajo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/Scripts/UpdateIdUsuario.js")
+<br /><br />
+<h2>Bienvenido @Session["nombreUsuario"] - Dashboard</h2>
+<h4>Aqui podras ver todos los trabajos que estan disponibles para trabajar</h4>
+
+<br />
+<br />
+<div id="global">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaInicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaAsignada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.costoTrabajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.categoria1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoTrabajo.estadoTrabajo1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistroUsuario.correo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaInicial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaAsignada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaFinal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.costoTrabajo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.categoria1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoTrabajo.estadoTrabajo1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistroUsuario.correo)
+                </td>
+                <td>
+                    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js")
+                    @Html.ActionLink("Details", "Edit", new { id=item.idTrabajo })
+
+                </td>
+            </tr>
+}
+
+    </table>
+</div>

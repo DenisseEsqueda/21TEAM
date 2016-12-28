@@ -1,0 +1,65 @@
+﻿@model CapaEntidades.RegistroUsuario
+
+@{
+    ViewBag.Title = "Eliminar usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar usuario</h2>
+
+<h3>Estas seguro que deseas eliminar?</h3>
+<div>
+    <h4>RegistroUsuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmarContrasena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmarContrasena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoUsuario.tipoUsuario1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoUsuario.tipoUsuario1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

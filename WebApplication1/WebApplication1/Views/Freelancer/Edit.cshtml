@@ -1,0 +1,204 @@
+﻿@model CapaEntidades.Trabajo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trabajo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <dl class="dl-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger", style = "display:none;" })
+        @Html.HiddenFor(model => model.idTrabajo)
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+            @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { @class = "form-control", style = "display:none;" } })
+            @Html.ValidationMessageFor(model => model.titulo, "", new { @class = "text-danger", style = "display:none;" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+            @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control", style = "display:none;" } })
+            @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger", style = "display:none;" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaInicial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaInicial)
+            @Html.EditorFor(model => model.fechaInicial, new { htmlAttributes = new { @class = "form-control", style = "display:none;" } })
+            @Html.ValidationMessageFor(model => model.fechaInicial, "", new { @class = "text-danger", style = "display:none;" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaAsignada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaAsignada)
+            @Html.EditorFor(model => model.fechaAsignada, new { htmlAttributes = new { @class = "form-control", style = "display:none;" } })
+            @Html.ValidationMessageFor(model => model.fechaAsignada, "", new { @class = "text-danger", style = "display:none;" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaFinal)
+            @Html.EditorFor(model => model.fechaFinal, new { htmlAttributes = new { @class = "form-control", style = "display:none;" } })
+            @Html.ValidationMessageFor(model => model.fechaFinal, "", new { @class = "text-danger", style = "display:none;" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costoTrabajo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costoTrabajo)
+            @Html.EditorFor(model => model.costoTrabajo, new { htmlAttributes = new { @class = "form-control", style = "display:none;" } })
+            @Html.ValidationMessageFor(model => model.costoTrabajo, "", new { @class = "text-danger", style = "display:none;" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.categoria1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.categoria1)
+            @Html.DropDownList("idCategoria", null, htmlAttributes: new { @class = "form-control", style = "display:none;" })
+            @Html.ValidationMessageFor(model => model.idCategoria, "", new { @class = "text-danger", style = "display:none;" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoTrabajo.estadoTrabajo1)
+        </dt>
+
+        <dd>
+
+            @Html.DropDownList("idEstado", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idEstado, "", new { @class = "text-danger" })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistroUsuario.correo)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.RegistroUsuario.correo)*@
+            @Html.DropDownList("idUsuario", null, htmlAttributes: new { @class = "form-control"})
+            @Html.ValidationMessageFor(model => model.idUsuario, "", new { @class = "text-danger" })
+        </dd>
+
+
+
+
+
+
+
+
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.titulo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { @class = "form-control", style = "display:none;" } })
+                    @Html.ValidationMessageFor(model => model.titulo, "", new {@class = "text-danger"  , style = "display:none;", style = "display:none;" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.descripcion, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control", style = "display:none;" } })
+                    @Html.ValidationMessageFor(model => model.descripcion, "", new {@class = "text-danger"  , style = "display:none;"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.idCategoria, "idCategoria", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("idCategoria", null, htmlAttributes: new { @class = "form-control" , style = "display:none;"})
+                    @Html.ValidationMessageFor(model => model.idCategoria, "", new {@class = "text-danger"  , style = "display:none;"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fechaInicial, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.fechaInicial, new { htmlAttributes = new { @class = "form-control" , style = "display:none;"} })
+                    @Html.ValidationMessageFor(model => model.fechaInicial, "", new {@class = "text-danger"  , style = "display:none;"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fechaAsignada, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.fechaAsignada, new { htmlAttributes = new { @class = "form-control" , style = "display:none;"} })
+                    @Html.ValidationMessageFor(model => model.fechaAsignada, "", new {@class = "text-danger"  , style = "display:none;"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.fechaFinal, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.fechaFinal, new { htmlAttributes = new { @class = "form-control" , style = "display:none;"} })
+                    @Html.ValidationMessageFor(model => model.fechaFinal, "", new {@class = "text-danger"  , style = "display:none;"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.idEstado, "idEstado", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("idEstado", null, htmlAttributes: new { @class = "form-control" , style = "display:none;"})
+                    @Html.ValidationMessageFor(model => model.idEstado, "", new {@class = "text-danger"  , style = "display:none;"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.idUsuario, "idUsuario", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("idUsuario", null, htmlAttributes: new { @class = "form-control" , style = "display:none;"})
+                    @Html.ValidationMessageFor(model => model.idUsuario, "", new {@class = "text-danger"  , style = "display:none;"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.costoTrabajo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.costoTrabajo, new { htmlAttributes = new { @class = "form-control" , style = "display:none;"} })
+                    @Html.ValidationMessageFor(model => model.costoTrabajo, "", new {@class = "text-danger"  , style = "display:none;"})
+                </div>
+            </div>*@
+
+    </dl>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+
+            <input type="submit" value="Tomar trabajo!" class="btn btn-default" />
+        </div>
+    </div>
+}
+<h4>
+
+    <a href='@Url.Action("Index", "Freelancer")'>
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>     Regresar
+</h4>

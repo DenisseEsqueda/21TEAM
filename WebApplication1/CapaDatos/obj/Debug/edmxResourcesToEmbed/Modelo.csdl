@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Proyecto_patronusWebModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EquipoTrabajo">
+    <Key>
+      <PropertyRef Name="idTeam" />
+    </Key>
+    <Property Name="idTeam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="num_miembros" Type="Int32" />
+    <NavigationProperty Name="Trabajoes" Relationship="Self.FK__Trabajo__idTeam__1B0907CE" FromRole="EquipoTrabajo" ToRole="Trabajo" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="idPerfil" />
+    </Key>
+    <Property Name="idPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="Int32" />
+    <Property Name="idTrabajo" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="habilidades" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="historial_trabajo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="trabajo_actual" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="About" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cerificaciones" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="lenguajes" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="rankingId" Type="Int32" />
+    <NavigationProperty Name="Trabajo" Relationship="Self.FK__Perfil__idTrabaj__20C1E124" FromRole="Perfil" ToRole="Trabajo" />
+    <NavigationProperty Name="RegistroUsuario" Relationship="Self.FK__Perfil__idUsuari__1FCDBCEB" FromRole="Perfil" ToRole="RegistroUsuario" />
+    <NavigationProperty Name="Ranking" Relationship="Self.FK__Perfil__rankingI__21B6055D" FromRole="Perfil" ToRole="Ranking" />
+  </EntityType>
+  <EntityType Name="Ranking">
+    <Key>
+      <PropertyRef Name="rankingId" />
+    </Key>
+    <Property Name="rankingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="puntos" Type="Int32" />
+    <NavigationProperty Name="Perfils" Relationship="Self.FK__Perfil__rankingI__21B6055D" FromRole="Ranking" ToRole="Perfil" />
+  </EntityType>
+  <EntityType Name="RegistroUsuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nombreUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmarContrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="idTipoUsuario" Type="Int32" />
+    <NavigationProperty Name="Perfils" Relationship="Self.FK__Perfil__idUsuari__1FCDBCEB" FromRole="RegistroUsuario" ToRole="Perfil" />
+    <NavigationProperty Name="TipoUsuario" Relationship="Self.FK__RegistroU__idTip__0519C6AF" FromRole="RegistroUsuario" ToRole="TipoUsuario" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="idTipoUsuario" />
+    </Key>
+    <Property Name="idTipoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoUsuario1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RegistroUsuarios" Relationship="Self.FK__RegistroU__idTip__0519C6AF" FromRole="TipoUsuario" ToRole="RegistroUsuario" />
+  </EntityType>
+  <EntityType Name="TrabActual">
+    <Key>
+      <PropertyRef Name="idTrabajo" />
+    </Key>
+    <Property Name="idTrabajo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaAsignada" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fechaInicial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fechaFinal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trabajo" Relationship="Self.FK__Trabajo__idTraba__1920BF5C" FromRole="TrabActual" ToRole="Trabajo" />
+  </EntityType>
+  <EntityType Name="Trabajo">
+    <Key>
+      <PropertyRef Name="idTrabajo" />
+    </Key>
+    <Property Name="idTrabajo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_inicial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_final" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="pago" Type="Int32" />
+    <Property Name="idTeam" Type="Int32" />
+    <NavigationProperty Name="EquipoTrabajo" Relationship="Self.FK__Trabajo__idTeam__1B0907CE" FromRole="Trabajo" ToRole="EquipoTrabajo" />
+    <NavigationProperty Name="Perfils" Relationship="Self.FK__Perfil__idTrabaj__20C1E124" FromRole="Trabajo" ToRole="Perfil" />
+    <NavigationProperty Name="TrabActual" Relationship="Self.FK__Trabajo__idTraba__1920BF5C" FromRole="Trabajo" ToRole="TrabActual" />
+    <NavigationProperty Name="TrabDisponible" Relationship="Self.FK__Trabajo__idTraba__1A14E395" FromRole="Trabajo" ToRole="TrabDisponible" />
+  </EntityType>
+  <EntityType Name="TrabDisponible">
+    <Key>
+      <PropertyRef Name="idTrabajo" />
+    </Key>
+    <Property Name="idTrabajo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaInicial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fechaFinal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="tiempo" Type="Int32" />
+    <Property Name="pago" Type="Int32" />
+    <NavigationProperty Name="Trabajo" Relationship="Self.FK__Trabajo__idTraba__1A14E395" FromRole="TrabDisponible" ToRole="Trabajo" />
+  </EntityType>
+  <Association Name="FK__Trabajo__idTeam__1B0907CE">
+    <End Role="EquipoTrabajo" Type="Self.EquipoTrabajo" Multiplicity="0..1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipoTrabajo">
+        <PropertyRef Name="idTeam" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Perfil__idTrabaj__20C1E124">
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="0..1" />
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trabajo">
+        <PropertyRef Name="idTrabajo" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="idTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Perfil__idUsuari__1FCDBCEB">
+    <End Role="RegistroUsuario" Type="Self.RegistroUsuario" Multiplicity="0..1" />
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistroUsuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Perfil__rankingI__21B6055D">
+    <End Role="Ranking" Type="Self.Ranking" Multiplicity="0..1" />
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ranking">
+        <PropertyRef Name="rankingId" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="rankingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroU__idTip__0519C6AF">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+    <End Role="RegistroUsuario" Type="Self.RegistroUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Principal>
+      <Dependent Role="RegistroUsuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trabajo__idTraba__1920BF5C">
+    <End Role="TrabActual" Type="Self.TrabActual" Multiplicity="1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TrabActual">
+        <PropertyRef Name="idTrabajo" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trabajo__idTraba__1A14E395">
+    <End Role="TrabDisponible" Type="Self.TrabDisponible" Multiplicity="1" />
+    <End Role="Trabajo" Type="Self.Trabajo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TrabDisponible">
+        <PropertyRef Name="idTrabajo" />
+      </Principal>
+      <Dependent Role="Trabajo">
+        <PropertyRef Name="idTrabajo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Proyecto_patronusWebEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EquipoTrabajoes" EntityType="Self.EquipoTrabajo" />
+    <EntitySet Name="Perfils" EntityType="Self.Perfil" />
+    <EntitySet Name="Rankings" EntityType="Self.Ranking" />
+    <EntitySet Name="RegistroUsuarios" EntityType="Self.RegistroUsuario" />
+    <EntitySet Name="TipoUsuarios" EntityType="Self.TipoUsuario" />
+    <EntitySet Name="TrabActuals" EntityType="Self.TrabActual" />
+    <EntitySet Name="Trabajoes" EntityType="Self.Trabajo" />
+    <EntitySet Name="TrabDisponibles" EntityType="Self.TrabDisponible" />
+    <AssociationSet Name="FK__Trabajo__idTeam__1B0907CE" Association="Self.FK__Trabajo__idTeam__1B0907CE">
+      <End Role="EquipoTrabajo" EntitySet="EquipoTrabajoes" />
+      <End Role="Trabajo" EntitySet="Trabajoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Perfil__idTrabaj__20C1E124" Association="Self.FK__Perfil__idTrabaj__20C1E124">
+      <End Role="Trabajo" EntitySet="Trabajoes" />
+      <End Role="Perfil" EntitySet="Perfils" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Perfil__idUsuari__1FCDBCEB" Association="Self.FK__Perfil__idUsuari__1FCDBCEB">
+      <End Role="RegistroUsuario" EntitySet="RegistroUsuarios" />
+      <End Role="Perfil" EntitySet="Perfils" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Perfil__rankingI__21B6055D" Association="Self.FK__Perfil__rankingI__21B6055D">
+      <End Role="Ranking" EntitySet="Rankings" />
+      <End Role="Perfil" EntitySet="Perfils" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroU__idTip__0519C6AF" Association="Self.FK__RegistroU__idTip__0519C6AF">
+      <End Role="TipoUsuario" EntitySet="TipoUsuarios" />
+      <End Role="RegistroUsuario" EntitySet="RegistroUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trabajo__idTraba__1920BF5C" Association="Self.FK__Trabajo__idTraba__1920BF5C">
+      <End Role="TrabActual" EntitySet="TrabActuals" />
+      <End Role="Trabajo" EntitySet="Trabajoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trabajo__idTraba__1A14E395" Association="Self.FK__Trabajo__idTraba__1A14E395">
+      <End Role="TrabDisponible" EntitySet="TrabDisponibles" />
+      <End Role="Trabajo" EntitySet="Trabajoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

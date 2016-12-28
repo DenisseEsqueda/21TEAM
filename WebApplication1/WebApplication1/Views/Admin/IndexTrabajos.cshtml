@@ -1,0 +1,92 @@
+﻿@model IEnumerable<CapaEntidades.Trabajo>
+
+@{
+    ViewBag.Title = "Trabajos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br />
+<h2>Trabajos</h2>
+<h4>Aqui podras ver todos aquellos trabajos que son registrados </h4>
+
+<button type="submit" class="Botones">@Html.ActionLink("Crear nuevo Trabajo", "CreateTrab")</button>
+<br />
+<br />
+ 
+<div id="global">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaInicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaAsignada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.costoTrabajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.categoria1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoTrabajo.estadoTrabajo1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistroUsuario.correo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaInicial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaAsignada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaFinal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.costoTrabajo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.categoria1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoTrabajo.estadoTrabajo1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistroUsuario.correo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditTrab", new { id=item.idTrabajo }) |
+                    @Html.ActionLink("Details", "DetailsTrab", new { id=item.idTrabajo }) |
+                    @Html.ActionLink("Delete", "DeleteTrab", new { id=item.idTrabajo })
+                </td>
+            </tr>
+}
+
+    </table>
+</div>
+
+<h4>
+    <a href='@Url.Action("dasboardAdmin", "Admin")'>
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    </a>    Regresar
+</h4>

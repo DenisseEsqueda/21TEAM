@@ -1,0 +1,22 @@
+﻿.Botones {
+  color:black;
+  font-style:normal;
+  background-color: #ee4b28;
+  border-color: #ed431f;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  border: none;
+  border-radius: 100px;
+  font-weight: 100;
+  text-transform: uppercase;
+  padding: 15px 30px;
+   -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.Botones:hover{
+  color: #222222;
+  background-color: #f2f2f2;
+  border-color: #ededed;
+}
+

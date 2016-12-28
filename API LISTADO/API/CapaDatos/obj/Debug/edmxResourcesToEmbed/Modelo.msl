@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProyectoPatronusWebModelStoreContainer" CdmEntityContainer="ProyectoPatronusWebEntities">
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="ProyectoPatronusWebModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="categoria1" ColumnName="categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoTrabajoes">
+      <EntityTypeMapping TypeName="ProyectoPatronusWebModel.EstadoTrabajo">
+        <MappingFragment StoreEntitySet="EstadoTrabajo">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="estadoTrabajo1" ColumnName="estadoTrabajo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistroUsuarios">
+      <EntityTypeMapping TypeName="ProyectoPatronusWebModel.RegistroUsuario">
+        <MappingFragment StoreEntitySet="RegistroUsuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="ConfirmarContrasena" ColumnName="ConfirmarContrasena" />
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuarios">
+      <EntityTypeMapping TypeName="ProyectoPatronusWebModel.TipoUsuario">
+        <MappingFragment StoreEntitySet="TipoUsuario">
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="tipoUsuario1" ColumnName="tipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trabajoes">
+      <EntityTypeMapping TypeName="ProyectoPatronusWebModel.Trabajo">
+        <MappingFragment StoreEntitySet="Trabajo">
+          <ScalarProperty Name="idTrabajo" ColumnName="idTrabajo" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fechaAsignada" ColumnName="fechaAsignada" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="costoTrabajo" ColumnName="costoTrabajo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAISES">
+      <EntityTypeMapping TypeName="ProyectoPatronusWebModel.PAIS">
+        <MappingFragment StoreEntitySet="PAISES">
+          <ScalarProperty Name="nombrePais" ColumnName="nombrePais" />
+          <ScalarProperty Name="idPaises" ColumnName="idPaises" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
